@@ -17,7 +17,11 @@
           </div>
         </div>
         <div class="right menu">
-          <a class="item" href="/users/login">Sign-in</a>
+          {% if user.is_authenticated %}
+            <a class="item" href="/users/logout">Sign-out</a>
+          {% else %}
+            <a class="item" href="/users/login">Sign-in</a>
+          {% endif %}
         </div>
       </div>
       {% block content %}{% endblock %}
